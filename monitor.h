@@ -1,6 +1,6 @@
 #pragma once
 #include <stdlib.h>
-#include <string.h>
+#include <string>
 
 void Alert(const std::string& message);
 int istempok(float temperature);
@@ -14,6 +14,7 @@ float random_low_temp = low_temp_min + ((float)rand() / RAND_MAX) * (low_temp_ma
 float high_temp_min = 102.0;
 float high_temp_max = 200.0;
 float random_high_temp = high_temp_min + ((float)rand() / RAND_MAX) * (high_temp_max - high_temp_min);
+
 
 
 
