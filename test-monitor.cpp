@@ -1,4 +1,4 @@
-#include "./monitor.h"
+#include "monitor.h"
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
@@ -32,6 +32,7 @@ TEST(Monitor, InvalidTemperatureRange) {
   EXPECT_FALSE(istempok(random_low_temp));
   EXPECT_FALSE(istempok(random_high_temp));
 }
+
 
 
 
