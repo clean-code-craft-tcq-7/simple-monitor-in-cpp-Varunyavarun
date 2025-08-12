@@ -3,6 +3,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <string>
 using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
 void print(std :: string message) {
@@ -19,7 +20,7 @@ int istempok(float temperature) {
     cout << "Temperature is critical!\n";
     print("Temperature is out of range");
     return 0;
-  } 
+  }
   return 1;
 }
 
@@ -42,7 +43,7 @@ int isspo2ok(float spo2) {
 }
 
 int vitalsOk(float temperature, float pulseRate, float spo2) {
-  return istempok(temperature) && ispulseok(pulseRate) && isspo2ok(spo2);  
+  return istempok(temperature) && ispulseok(pulseRate) && isspo2ok(spo2); 
 }
 
 
