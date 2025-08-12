@@ -1,7 +1,8 @@
 
 #include <random>
-#include "./monitor.h"
+
 #include <gtest/gtest.h>
+#include "./monitor.h"
 
 std::random_device rd;
 std::mt19937 gen(rd());
@@ -30,6 +31,7 @@ TEST(Monitor, InvalidTemperatureRange) {
   EXPECT_FALSE(istempok(random_low_temp));
   EXPECT_FALSE(istempok(random_high_temp));
 }
+
 
 
 
