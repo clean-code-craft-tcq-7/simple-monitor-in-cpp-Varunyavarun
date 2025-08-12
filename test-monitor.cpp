@@ -1,8 +1,6 @@
-#include "monitor.h"  // Adjust path to your actual monitor.h location
+#include "./monitor.h"  // Adjust path to your actual monitor.h location
 
 // C system headers
-#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 
 // C++ system headers
@@ -38,6 +36,7 @@ TEST(Monitor, InvalidTemperatureRange) {
   EXPECT_FALSE(istempok(random_low_temp));
   EXPECT_FALSE(istempok(random_high_temp));
 }
+
 
 
 
