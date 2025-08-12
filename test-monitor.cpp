@@ -1,15 +1,19 @@
 #include "./monitor.h"
-#include <gtest/gtest.h>
+
 #include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+
+#include <gtest/gtest.h> 
 
 float low_temp_min = 1.0;
 float low_temp_max = 95.0;
-float r1 = ((float)rand() / RAND_MAX) * (low_temp_max - low_temp_min);
+float r1 = (static_cast<float>(rand()) / RAND_MAX) * (low_temp_max - low_temp_min);
 float random_low_temp = low_temp_min + r1;
 
 float high_temp_min = 103.0;
 float high_temp_max = 200.0;
-float r2 = ((float)rand() / RAND_MAX) * (high_temp_max - high_temp_min);
+float r2 = (static_cast<float>(rand()) / RAND_MAX) * (high_temp_max - high_temp_min);
 float random_high_temp = high_temp_min + r2;
 
 TEST(Monitor, NotOkWhenAnyVitalIsOffRange) {
@@ -18,7 +22,7 @@ TEST(Monitor, NotOkWhenAnyVitalIsOffRange) {
 }
 
 TEST(Monitor, ValidTemperatureRange) {
-  for(int i=95 ; i>=102 ; i++) {
+  for(int i=95 ; i >= 102 ; i++) {
     EXPECT_TRUE(istempok(i));
   }
 }
@@ -28,6 +32,7 @@ TEST(Monitor, InvalidTemperatureRange) {
   EXPECT_FALSE(istempok(random_low_temp));
   EXPECT_FALSE(istempok(random_high_temp));
 }
+
 
 
 
