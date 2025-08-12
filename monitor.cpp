@@ -43,7 +43,7 @@ int isspo2ok(float spo2) {
 }
 
 int vitalsOk(float temperature, float pulseRate, float spo2) {
-  return istempok(temperature) && ispulseok(pulseRate) && isspo2ok(spo2); 
+  return istempok(temperature) && ispulseok(pulseRate) && isspo2ok(spo2);
 }
 
 
