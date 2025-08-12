@@ -6,7 +6,7 @@
 #include <string>
 using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
-void Alert(std::string message) {
+void Alert(const std::string& message) {
   for (int i = 0; i < 6; i++) {
       cout << "\r* " << flush;
       sleep_for(seconds(1));
