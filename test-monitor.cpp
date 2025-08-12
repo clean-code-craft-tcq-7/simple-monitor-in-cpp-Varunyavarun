@@ -3,16 +3,18 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+#include <random>
 
+std::random_device rd;
+std::mt19937 gen(rd());
 float low_temp_min = 1.0;
 float low_temp_max = 95.0;
-float r1 = (static_cast<float>(rand_r()) / RAND_MAX) * (low_temp_max - low_temp_min);
-float random_low_temp = low_temp_min + r1;
-
 float high_temp_min = 103.0;
 float high_temp_max = 200.0;
-float r2 = (static_cast<float>(rand_r()) / RAND_MAX) * (high_temp_max - high_temp_min);
-float random_high_temp = high_temp_min + r2;
+std::uniform_real_distribution<float> low_dist(low_temp_min, low_temp_max);
+std::uniform_real_distribution<float> high_dist(high_temp_min, high_temp_max);
+float random_low_temp = low_dist(gen);
+float random_high_temp = high_dist(gen);
 
 TEST(Monitor, NotOkWhenAnyVitalIsOffRange) {
   ASSERT_FALSE(vitalsOk(99, 102, 70));
@@ -30,6 +32,7 @@ TEST(Monitor, InvalidTemperatureRange) {
   EXPECT_FALSE(istempok(random_low_temp));
   EXPECT_FALSE(istempok(random_high_temp));
 }
+
 
 
 
