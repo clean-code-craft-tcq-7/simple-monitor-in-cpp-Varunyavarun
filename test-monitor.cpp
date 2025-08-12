@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "./monitor.h"
-#include <stdlib.h> 
+#include <stdlib.h>
 
 float low_temp_min = 1.0;
 float low_temp_max = 95.0;
@@ -16,9 +16,9 @@ TEST(Monitor, NotOkWhenAnyVitalIsOffRange) {
 }
 
 TEST(Monitor, ValidTemperatureRange) {
-for(int i=95 ; i>=102 ; i++){
-  EXPECT_TRUE(istempok(i));
-}
+  for(int i=95 ; i>=102 ; i++) {
+    EXPECT_TRUE(istempok(i));
+  }
 }
 
 TEST(Monitor, InvalidTemperatureRange) {
@@ -26,6 +26,7 @@ TEST(Monitor, InvalidTemperatureRange) {
   EXPECT_FALSE(istempok(random_low_temp));
   EXPECT_FALSE(istempok(random_high_temp));
 }
+
 
 
 
