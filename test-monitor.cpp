@@ -13,6 +13,8 @@ for(i=95 ; i>102 ; i++){
 }
 
 TEST(Monitor, InvalidTemperatureRange) {
+  srand(time(NULL)); 
   EXPECT_FALSE(istempok(random_low_temp));
   EXPECT_FALSE(istempok(random_high_temp));
 }
+
