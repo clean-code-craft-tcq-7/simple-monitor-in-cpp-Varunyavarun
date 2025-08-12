@@ -6,7 +6,7 @@
 #include <string>
 using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
-void print(std :: string message) {
+void Alert(std::string message) {
   for (int i = 0; i < 6; i++) {
       cout << "\r* " << flush;
       sleep_for(seconds(1));
@@ -18,7 +18,7 @@ void print(std :: string message) {
 int istempok(float temperature) {
   if (temperature > 102 || temperature < 95) {
     cout << "Temperature is critical!\n";
-    print("Temperature is out of range");
+    Alert("Temperature is out of range!");
     return 0;
   }
   return 1;
@@ -27,7 +27,7 @@ int istempok(float temperature) {
 int ispulseok(float pulseRate) {
   if (pulseRate < 60 || pulseRate > 100) {
     cout << "Pulse Rate is critical!\n";
-    print("Pulse Rate is out of range");
+    Alert("Pulse Rate is out of range!");
     return 0;
   }
   return 1;
@@ -36,7 +36,7 @@ int ispulseok(float pulseRate) {
 int isspo2ok(float spo2) {
   if (spo2 < 90) {
     cout << "Oxygen Saturation is critical!\n";
-    print("Oxygen Saturation is out of range");
+    Alert("Oxygen Saturation is out of range!");
     return 0;
   }
   return 1;
