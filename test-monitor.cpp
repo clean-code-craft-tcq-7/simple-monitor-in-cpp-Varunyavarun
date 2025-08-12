@@ -8,7 +8,7 @@ TEST(Monitor, NotOkWhenAnyVitalIsOffRange) {
 }
 
 TEST(Monitor, ValidTemperatureRange) {
-for(int i=95 ; i>102 ; i++){
+for(int i=95 ; i>=102 ; i++){
   EXPECT_TRUE(istempok(i));
 }
 }
@@ -18,5 +18,6 @@ TEST(Monitor, InvalidTemperatureRange) {
   EXPECT_FALSE(istempok(random_low_temp));
   EXPECT_FALSE(istempok(random_high_temp));
 }
+
 
 
