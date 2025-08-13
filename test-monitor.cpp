@@ -10,7 +10,7 @@ float high_temp_min = 103.0;
 float high_temp_max = 200.0;
 float low_pulse_min = 1.0;
 float low_pulse_max = 59.0;
-float high_pulse_min = 101.0;
+float high_pulse_min = 99.0;
 float high_pulse_max = 200.0;
 float low_spo2_min = 1.0;
 float low_spo2_max = 89.0;
@@ -72,6 +72,7 @@ TEST(Monitor, Invalidspo2Range) {
   srand(time(NULL));
   EXPECT_FALSE(isspo2ok(random_high_spo2));
 }
+
 
 
 
