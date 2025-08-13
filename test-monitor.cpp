@@ -5,15 +5,15 @@
 std::random_device rd;
 std::mt19937 gen(rd());
 float low_temp_min = 1.0;
-float low_temp_max = 94.0;
-float high_temp_min = 103.0;
+float low_temp_max = 95.0;
+float high_temp_min = 102.0;
 float high_temp_max = 200.0;
 float low_pulse_min = 1.0;
 float low_pulse_max = 60.0;
-float high_pulse_min = 99.0;
+float high_pulse_min = 100.0;
 float high_pulse_max = 200.0;
 float low_spo2_min = 1.0;
-float low_spo2_max = 89.0;
+float low_spo2_max = 90.0;
 float high_spo2_min = 91.0;
 float high_spo2_max = 200.0;
 
@@ -72,6 +72,7 @@ TEST(Monitor, Invalidspo2Range) {
   srand(time(NULL));
   EXPECT_FALSE(isspo2ok(random_high_spo2));
 }
+
 
 
 
