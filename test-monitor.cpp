@@ -9,8 +9,8 @@ float low_temp_max = 94.0;
 float high_temp_min = 103.0;
 float high_temp_max = 200.0;
 float low_pulse_min = 1.0;
-float low_pulse_max = 89.0;
-float high_pulse_min = 91.0;
+float low_pulse_max = 59.0;
+float high_pulse_min = 101.0;
 float high_pulse_max = 200.0;
 float low_spo2_min = 1.0;
 float low_spo2_max = 89.0;
@@ -31,8 +31,8 @@ float random_low_pulse = invalid_low_pulse(gen);
 float random_high_pulse = invalid_high_pulse(gen);
 float random_valid_pulse = valid_pulse(gen);
 
-std::uniform_real_distribution<float> valid_spo2(low_spo2_min, low_spo2_max);
-std::uniform_real_distribution<float> invalid_high_spo2(high_spo2_min, high_spo2_max);
+std::uniform_real_distribution<float> valid_spo2(high_spo2_min, high_spo2_max);
+std::uniform_real_distribution<float> invalid_high_spo2(low_spo2_min, low_spo2_max);
 float random_high_spo2 = invalid_high_spo2(gen);
 float random_valid_spo2 = valid_spo2(gen);
 
@@ -72,6 +72,7 @@ TEST(Monitor, Invalidspo2Range) {
   srand(time(NULL));
   EXPECT_FALSE(isspo2ok(random_high_spo2));
 }
+
 
 
 
