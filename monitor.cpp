@@ -15,61 +15,54 @@ void Alert(const std::string& message) {
     }
 }
 
+int isinrange(float value, float min, float max) {
+    cout << "\r*" << value;
+    return value > min || value < max;
+}
+
 int istempok(float temperature) {
-  if (temperature > 102 || temperature < 95) {
+  if (isinrange(temperature, 95, 102)) {
     cout << "Temperature is critical!\n";
-    cout << "\r*" << temperature;
-    Alert("Temperature is out of range!");
     return 0;
   }
   return 1;
 }
 
 int ispulseok(float pulseRate) {
-  if (pulseRate < 60 || pulseRate > 100) {
+  if (isinrange(pulserate, 60, 100)) {
     cout << "Pulse Rate is critical!\n";
-    cout << "\r*" << pulseRate;
-    Alert("Pulse Rate is out of range!");
     return 0;
   }
   return 1;
 }
 
 int isbloodsugarok(float bloodsugar) {
-  if (bloodsugar < 70 || bloodsugar > 110) {
+  if (isinrange(bloodsugar, 70, 110)) {
     cout << "Blood sugar Rate is critical!\n";
-    cout << "\r*" << bloodsugar;
-    Alert("Blood sugar Rate is out of range!");
     return 0;
   }
   return 1;
 }
 
 int isbloodpressureok(float bloodpressure) {
-  if (bloodpressure < 90 || bloodpressure > 150) {
+  if (isinrange(bloodpressure, 90, 150)) {
     cout << "Blood pressure Rate is critical!\n";
-    cout << "\r*" << bloodpressure;
-    Alert("Blood pressure Rate is out of range!");
     return 0;
   }
   return 1;
 }
 
 int isrespirationok(float respiration) {
-  if (respiration < 90 || respiration > 150) {
+  if (isinrange(respiration, 90, 150)) {
     cout << "Respiration Rate is critical!\n";
-    cout << "\r*" << respiration;
-    Alert("Respiration Rate is out of range!");
     return 0;
   }
   return 1;
 }
 
 int isspo2ok(float spo2) {
-  if (spo2 < 90) {
+  if (isinrange(spo2, 0, 90)) {
     cout << "Oxygen Saturation is critical!\n";
-    cout << "\r*" << spo2;
-    Alert("Oxygen Saturation is out of range!");
     return 0;
   }
   return 1;
@@ -78,6 +71,3 @@ int isspo2ok(float spo2) {
 int vitalsOk(float temperature, float pulseRate, float spo2, float respiration, float bloodpressure, float bloodsugar) {
   return istempok(temperature) && ispulseok(pulseRate) && isspo2ok(spo2) && isrespirationok(respiration) && isbloodpressureok(bloodpressure) && isbloodsugarok(bloodsugar);
 }
-
-
-
