@@ -53,7 +53,7 @@ int isbloodpressureok(float bloodpressure) {
 }
 
 int isrespirationok(float respiration) {
-  if (isinrange(respiration, 90, 150)) {
+  if (isinrange(respiration, 12, 20)) {
     cout << "Respiration Rate is critical!\n";
     return 0;
   }
