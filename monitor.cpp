@@ -35,6 +35,36 @@ int ispulseok(float pulseRate) {
   return 1;
 }
 
+int isbloodsugarok(float bloodsugar) {
+  if (bloodsugar < 70 || bloodsugar > 110) {
+    cout << "Blood sugar Rate is critical!\n";
+    cout << "\r*" << bloodsugar;
+    Alert("Blood sugar Rate is out of range!");
+    return 0;
+  }
+  return 1;
+}
+
+int isbloodpressureok(float bloodpressure) {
+  if (bloodpressure < 90 || bloodpressure > 150) {
+    cout << "Blood pressure Rate is critical!\n";
+    cout << "\r*" << bloodpressure;
+    Alert("Blood pressure Rate is out of range!");
+    return 0;
+  }
+  return 1;
+}
+
+int isrespirationok(float respiration) {
+  if (respiration < 90 || respiration > 150) {
+    cout << "Respiration Rate is critical!\n";
+    cout << "\r*" << respiration;
+    Alert("Respiration Rate is out of range!");
+    return 0;
+  }
+  return 1;
+}
+
 int isspo2ok(float spo2) {
   if (spo2 < 90) {
     cout << "Oxygen Saturation is critical!\n";
@@ -45,8 +75,8 @@ int isspo2ok(float spo2) {
   return 1;
 }
 
-int vitalsOk(float temperature, float pulseRate, float spo2) {
-  return istempok(temperature) && ispulseok(pulseRate) && isspo2ok(spo2);
+int vitalsOk(float temperature, float pulseRate, float spo2, float respiration, float bloodpressure, float bloodsugar) {
+  return istempok(temperature) && ispulseok(pulseRate) && isspo2ok(spo2) && isrespirationok(respiration) && isbloodpressureok(bloodpressure) && isbloodsugarok(bloodsugar);
 }
 
 
